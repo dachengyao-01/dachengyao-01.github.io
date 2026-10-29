@@ -89,6 +89,7 @@ strong { font-weight: 600; }
 .grants-list li:last-child, .awards-list li:last-child { margin-bottom: 0; }
 .award-note { margin: 9px 0 0; font-size: 15px; }
 .teaching-section h2 { margin-top: 40px; }
+.teaching-section > h2:first-child { margin-top: 0; }
 .teaching-section h3 { margin: 28px 0 14px; font-size: 18px; }
 .teaching-section ul { padding-left: 21px; margin: 0; }
 .teaching-section li { padding-left: 3px; margin-bottom: 16px; }
