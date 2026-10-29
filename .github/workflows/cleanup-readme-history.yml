@@ -1,0 +1,51 @@
+name: Repository history maintenance
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/cleanup-readme-history.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repository-history-maintenance
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    if: github.repository == 'dachengyao-01/dachengyao-01.github.io'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the current main branch
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Install the history filtering tool
+        run: python3 -m pip install --target "$RUNNER_TEMP/history-tools" git-filter-repo==2.47.0
+
+      - name: Remove README history while preserving current files
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected_head="$(git rev-parse HEAD)"
+          expected_tree="$(git rev-parse 'HEAD^{tree}')"
+          test "$expected_head" = "$GITHUB_SHA"
+          expected_parent="$(git rev-parse 'HEAD^')"
+          test "$(git rev-parse "$expected_parent^{tree}")" = c428c6db72417e7a1ebfb3812911280f81c2e02b
+          test "$(git diff --name-only HEAD^ HEAD)" = .github/workflows/cleanup-readme-history.yml
+          test "$(git ls-remote --heads origin | wc -l | tr -d ' ')" = 1
+          test -z "$(git ls-remote --tags origin)"
+          test ! -e README.md
+
+          python3 "$RUNNER_TEMP/history-tools/git_filter_repo.py" --force --path README.md --invert-paths
+
+          test "$(git rev-parse 'HEAD^{tree}')" = "$expected_tree"
+          test -z "$(git log --all --format=%H -- README.md)"
+          git remote add origin "https://github.com/$GITHUB_REPOSITORY.git"
+          git push --force-with-lease="refs/heads/main:$expected_head" origin HEAD:refs/heads/main
