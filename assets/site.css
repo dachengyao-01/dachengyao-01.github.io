@@ -75,7 +75,7 @@ strong { font-weight: 600; }
 .background-list dd span { display: block; margin-top: 3px; }
 .appointment-history { padding-left: 0; list-style: none; margin: 9px 0 0; }
 .appointment-history li { display: flex; justify-content: space-between; gap: 8px 20px; margin-bottom: 4px; font-size: 15px; }
-.appointment-history time { color: var(--muted); font-size: 13px; white-space: nowrap; align-self: center; }
+.appointment-history time { color: var(--muted); font-size: 13px; white-space: nowrap; align-self: center; margin-left: auto; }
 .grants-list, .awards-list { padding-left: 21px; margin: 0; }
 .grants-list li, .awards-list li { padding-left: 3px; margin-bottom: 22px; }
 .grants-list li:last-child, .awards-list li:last-child { margin-bottom: 0; }
