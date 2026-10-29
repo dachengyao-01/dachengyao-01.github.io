@@ -55,11 +55,10 @@
   <h3><a href="https://doi.org/论文编号" target="_blank" rel="noopener noreferrer">论文标题</a></h3>
   <p class="authors">A. Author and <strong>D. Yao</strong>.</p>
   <p class="venue"><em>期刊名称</em>, 卷(期), 页码, 2026.</p>
-  <a class="paper-link" href="https://doi.org/论文编号" target="_blank" rel="noopener noreferrer">Paper</a>
 </li>
 ```
 
-标题链接和最后的 `Paper` 链接需一起更新。Working Paper 的 `venue` 行可写 `Working paper, 2026.`，最后的链接文字可写 `arXiv` 或 `SSRN`。正式发表后，把该完整条目移至 Publications，并更新期刊信息。
+在论文标题的链接中填写 DOI、arXiv 或 SSRN 地址即可。Working Paper 的 `venue` 行可写 `Working paper, 2026.`。正式发表后，把该完整条目移至 Publications，并更新期刊信息。
 
 ### 修改任职日期
 
