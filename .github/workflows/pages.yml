@@ -35,6 +35,8 @@ jobs:
           site_output="$(mktemp -d "$RUNNER_TEMP/pages-site.XXXXXX")"
           cp index.html .nojekyll "$site_output/"
           cp -R background research teaching-and-students grants assets "$site_output/"
+          portrait_version="$(git hash-object assets/dacheng-yao.jpg)"
+          find "$site_output" -name '*.html' -type f -exec sed -i "s|assets/dacheng-yao[.]jpg\"|assets/dacheng-yao.jpg?v=$portrait_version\"|g" {} +
           echo "path=$site_output" >> "$GITHUB_OUTPUT"
 
       - name: Upload GitHub Pages artifact
