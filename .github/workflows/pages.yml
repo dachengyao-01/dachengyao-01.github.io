@@ -34,7 +34,7 @@ jobs:
           set -euo pipefail
           site_output="$(mktemp -d "$RUNNER_TEMP/pages-site.XXXXXX")"
           cp index.html .nojekyll "$site_output/"
-          cp -R research background assets "$site_output/"
+          cp -R background research teaching-and-students grants assets "$site_output/"
           echo "path=$site_output" >> "$GITHUB_OUTPUT"
 
       - name: Upload GitHub Pages artifact
