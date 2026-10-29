@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+.openai/
+.codex/
+.agents/
+node_modules/
+__pycache__/
+*.log
+_site/
+*.zip
