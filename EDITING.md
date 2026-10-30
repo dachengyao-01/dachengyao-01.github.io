@@ -13,7 +13,7 @@
 | Home：个人简介、研究方向、联系方式 | `index.html` |
 | Experience：任职、教育、学术访问 | `background/index.html` |
 | Research：Working Papers、Publications | `research/index.html` |
-| Teaching and Students：课程、博士生、硕士生 | `teaching-and-students/index.html` |
+| Students and Teaching：博士生、硕士生、课程 | `teaching-and-students/index.html` |
 | Grants and Awards：科研项目、奖励 | `grants/index.html` |
 | 全站字体、颜色、页面宽度、日期对齐 | `assets/site.css` |
 | 全站个人照片 | `assets/dacheng-yao.jpg` |
